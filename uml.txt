@@ -1,0 +1,33 @@
+Transaction app
+
+ * users
+		first_name
+     Last_name
+		phone
+
+ * customer
+		cust_no
+
+
+ * Account
+     cust_no
+     cust_ac_no
+		ac_desc
+		ac_type I C
+		record_stat O C
+		ac_dormant Y N
+
+ * DailyTransaction
+		txn_ref
+		txn_dt
+		amount
+		txn_stat
+		devise
+		amount_dev
+ * historyTransaction
+		txn_ref
+		txn_dt
+		amount
+		txn_stat
+		devise
+		amount_dev
