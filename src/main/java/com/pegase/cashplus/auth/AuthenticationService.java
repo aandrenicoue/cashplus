@@ -9,6 +9,7 @@ import com.pegase.cashplus.token.TokenType;
 import com.pegase.cashplus.user.Role;
 import com.pegase.cashplus.user.User;
 import com.pegase.cashplus.user.UserRepository;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -58,7 +59,7 @@ public class AuthenticationService {
         )
     );
     var user = repository.findByEmail(request.getEmail())
-        .orElseThrow();
+        .orElseThrow(() -> new EntityNotFoundException("Username or password is invalid."));
     var jwtToken = jwtService.generateToken(user);
     var refreshToken = jwtService.generateRefreshToken(user);
     revokeAllUserTokens(user);

@@ -1,5 +1,6 @@
 package com.pegase.cashplus.config;
 
+import com.pegase.cashplus.handler.CustomAuthenticationFailureHandler;
 import jakarta.servlet.Filter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 
@@ -46,4 +48,10 @@ public class SecurityConfiguration {
 
     return http.build();
   }
+
+  @Bean
+  public AuthenticationFailureHandler authenticationFailureHandler() {
+    return new CustomAuthenticationFailureHandler();
+  }
+
 }
