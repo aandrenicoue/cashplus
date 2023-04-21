@@ -4,9 +4,9 @@ spring:
   # profiles:
   # active: @spring.profiles.active@
   datasource:
-    url: jdbc:postgresql://localhost:5432/cashplus
+    url: jdbc:postgresql://localhost:5432/pegase
     username: postgres
-    password: 67551951
+    password: yasser2013
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
